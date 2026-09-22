@@ -1,0 +1,33 @@
+function createHearts() {
+            const heartInterval = setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-float');
+
+                const hearts = ['❤️', '💖', '💗', '💓', '💞', '💘', '💕', '✨'];
+                heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 2 + 3) + 's'; 
+                const size = Math.random() * 1.5 + 1; 
+                heart.style.fontSize = size + 'rem';
+
+                screen2.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }, 150); 
+        }
+
+        yesBtn.addEventListener('click', () => {
+            screen1.classList.add('hidden');
+            screen1.classList.remove('flex');
+
+            screen2.classList.remove('hidden');
+            screen2.classList.add('flex');
+
+            createHearts();
+        });
+    </script>
+</body>
+</html>
